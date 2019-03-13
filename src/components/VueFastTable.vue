@@ -1,45 +1,45 @@
 <template>
     <div class="vue-fast-table" ref="table" v-bind:class="scrollDirection">
         <div class="table-head">
-          <div class="module" style="width:3000px"
+          <div class="module"
             v-bind:style="{ transform: 'translateX(' + scrollLeft + 'px)' }"  
             v-for="(item, index) in monthArray" v-bind:key="index">
-            <table width="3000" cellspacing="0" cellpadding="0">
+            <table cellspacing="0" cellpadding="0">
               <thead>
                 <tr>
                   <td colspan="30">2018-01-23</td>
                 </tr>
                 <tr>
-                  <td>1</td>
-                  <td>2</td>
-                  <td>3</td>
-                  <td>4</td>
-                  <td>5</td>
-                  <td>6</td>
-                  <td>7</td>
-                  <td>8</td>
-                  <td>9</td>
-                  <td>10</td>
-                  <td>11</td>
-                  <td>12</td>
-                  <td>13</td>
-                  <td>14</td>
-                  <td>15</td>
-                  <td>16</td>
-                  <td>17</td>
-                  <td>18</td>
-                  <td>19</td>
-                  <td>20</td>
-                  <td>21</td>
-                  <td>22</td>
-                  <td>23</td>
-                  <td>24</td>
-                  <td>25</td>
-                  <td>26</td>
-                  <td>27</td>
-                  <td>28</td>
-                  <td>29</td>
-                  <td>30</td>
+                  <td width="100" style="min-width:100px">1</td>
+                  <td width="100" style="min-width:100px">2</td>
+                  <td width="100" style="min-width:100px">3</td>
+                  <td width="100" style="min-width:100px">4</td>
+                  <td width="100" style="min-width:100px">5</td>
+                  <td width="100" style="min-width:100px">6</td>
+                  <td width="100" style="min-width:100px">7</td>
+                  <td width="100" style="min-width:100px">8</td>
+                  <td width="100" style="min-width:100px">9</td>
+                  <td width="100" style="min-width:100px">10</td>
+                  <td width="100" style="min-width:100px">11</td>
+                  <td width="100" style="min-width:100px">12</td>
+                  <td width="100" style="min-width:100px">13</td>
+                  <td width="100" style="min-width:100px">14</td>
+                  <td width="100" style="min-width:100px">15</td>
+                  <td width="100" style="min-width:100px">16</td>
+                  <td width="100" style="min-width:100px">17</td>
+                  <td width="100" style="min-width:100px">18</td>
+                  <td width="100" style="min-width:100px">19</td>
+                  <td width="100" style="min-width:100px">20</td>
+                  <td width="100" style="min-width:100px">21</td>
+                  <td width="100" style="min-width:100px">22</td>
+                  <td width="100" style="min-width:100px">23</td>
+                  <td width="100" style="min-width:100px">24</td>
+                  <td width="100" style="min-width:100px">25</td>
+                  <td width="100" style="min-width:100px">26</td>
+                  <td width="100" style="min-width:100px">27</td>
+                  <td width="100" style="min-width:100px">28</td>
+                  <td width="100" style="min-width:100px">29</td>
+                  <td width="100" style="min-width:100px">30</td>
                 </tr>
               </thead>
             </table>
@@ -49,41 +49,41 @@
           <div class="module" 
             style="width:3000px"
             v-for="(item, index) in monthArray" v-bind:key="index">
-            <table  width="3000" 
-              v-if="Math.abs(index - curModule)  < 3"
+            <table width="3000" 
+              v-if="Math.abs(index - curModule)  < 10"
               cellspacing="0" cellpadding="0">
               <thead>
                 <tr v-for="(item, index) in projectArray" v-bind:key="index">
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
                 </tr>
               </thead>
             </table>
@@ -117,7 +117,6 @@
 
 <script>
 
-  
   export default {
     name: "vueFastTable",
     components: {
@@ -138,24 +137,50 @@
         curModule: 0
       }
     },
+    beforeCreate() {
+
+    },
     methods: {
       tableScroll(e) {
-        const scrollLeft = e.target.scrollLeft
-        const scrollTop = e.target.scrollTop
-        if (scrollLeft == this.scrollLeft) {
-          this.scrollDirection = 'vertical'
-        } else {
-          this.scrollDirection = 'horizontal'
+        // console.log(e.target.scrollLeft)
+        // window.sp && clearTimeout(sp)
+        // window.sp = setTimeout(()=>{
+          const scrollLeft = e.target.scrollLeft
+          // console.log(this.scrollLeft, scrollLeft)
+          const scrollTop = e.target.scrollTop
+          if (scrollLeft == this.scrollLeft) {
+            this.scrollDirection = 'vertical'
+          } else {
+            this.scrollDirection = 'horizontal'
+          }
+          this.curModule = parseInt(scrollLeft/3000)
+          this.scrollLeft = -scrollLeft
+          this.scrollTop = -scrollTop
+        // },100)
+        
+      },
+      clickTd(e) {
+        e.target.childNodes[0].style.display = 'block'
+        setTimeout(()=>{
+          e.target.childNodes[0].focus()
+        },20)
+        
+      },
+      blurTd(e) {
+        e.target.style.display = 'none'
+        
+      },
+      resizeHead() {
+        const headModules = document.querySelectorAll('.table-head .module')
+        for(let i=0; i<headModules.length; i++) {
+
         }
-        this.curModule = parseInt(scrollLeft/3000)
-        this.scrollLeft = -scrollLeft
-        this.scrollTop = -scrollTop
       }
     },
     mounted() {
       let arr = []
       let projectArray = []
-      for(var i=0; i< 120; i++) {
+      for(var i=0; i< 36; i++) {
         arr.push(1)
       }
       for(var i=0; i< 100; i++) {
