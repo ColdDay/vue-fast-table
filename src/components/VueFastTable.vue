@@ -3,87 +3,35 @@
         <div class="table-head">
           <div class="module"
             v-bind:style="{ transform: 'translateX(' + scrollLeft + 'px)' }"  
-            v-for="(item, index) in monthArray" v-bind:key="index">
+            v-for="(item, index) in monthData" v-bind:key="index">
             <table cellspacing="0" cellpadding="0">
               <thead>
                 <tr>
-                  <td colspan="30">2018-01-23</td>
+                  <td colspan="30">{{item.month}}</td>
                 </tr>
                 <tr>
-                  <td width="100" style="min-width:100px">1</td>
-                  <td width="100" style="min-width:100px">2</td>
-                  <td width="100" style="min-width:100px">3</td>
-                  <td width="100" style="min-width:100px">4</td>
-                  <td width="100" style="min-width:100px">5</td>
-                  <td width="100" style="min-width:100px">6</td>
-                  <td width="100" style="min-width:100px">7</td>
-                  <td width="100" style="min-width:100px">8</td>
-                  <td width="100" style="min-width:100px">9</td>
-                  <td width="100" style="min-width:100px">10</td>
-                  <td width="100" style="min-width:100px">11</td>
-                  <td width="100" style="min-width:100px">12</td>
-                  <td width="100" style="min-width:100px">13</td>
-                  <td width="100" style="min-width:100px">14</td>
-                  <td width="100" style="min-width:100px">15</td>
-                  <td width="100" style="min-width:100px">16</td>
-                  <td width="100" style="min-width:100px">17</td>
-                  <td width="100" style="min-width:100px">18</td>
-                  <td width="100" style="min-width:100px">19</td>
-                  <td width="100" style="min-width:100px">20</td>
-                  <td width="100" style="min-width:100px">21</td>
-                  <td width="100" style="min-width:100px">22</td>
-                  <td width="100" style="min-width:100px">23</td>
-                  <td width="100" style="min-width:100px">24</td>
-                  <td width="100" style="min-width:100px">25</td>
-                  <td width="100" style="min-width:100px">26</td>
-                  <td width="100" style="min-width:100px">27</td>
-                  <td width="100" style="min-width:100px">28</td>
-                  <td width="100" style="min-width:100px">29</td>
-                  <td width="100" style="min-width:100px">30</td>
+                  <td width="100" 
+                    v-for="(d_item, d_index) in item.days" v-bind:key="d_index"
+                    style="min-width:100px">{{d_item}}</td>
+                  
                 </tr>
               </thead>
             </table>
           </div>
         </div>
+         <!-- v-if="Math.abs(index - curModule)  < 1" -->
         <div class="table-body" @scroll="tableScroll">
           <div class="module" 
-            style="width:3000px"
-            v-for="(item, index) in monthArray" v-bind:key="index">
-            <table width="3000" 
-              v-if="Math.abs(index - curModule)  < 10"
+            style="width:400px"
+            v-for="(item, index) in monthData" v-bind:key="index">
+            <table width="400" 
               cellspacing="0" cellpadding="0">
               <thead>
-                <tr v-for="(item, index) in projectArray" v-bind:key="index">
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
-                  <td @click="clickTd"><input type="text" @blur="blurTd" style="display:none"></td>
+                <tr v-for="(p_item, p_index) in projectData" v-bind:key="p_index">
+                  <td @click="clickTd" v-for="(d_item, d_index) in item.days" v-bind:key="d_index">
+                   <!-- {{p_index +'====' + item.month + '===' + d_item}} -->
+                    {{(originProjectData[p_index][''+item.month][''+d_item]['last'])}}
+                  </td>
                 </tr>
               </thead>
             </table>
@@ -105,8 +53,8 @@
           <div class="module"  v-bind:style="{ transform: 'translateY(' + scrollTop + 'px)' }">
             <table width="100" cellspacing="0" cellpadding="0">
               <thead>
-                <tr v-for="(item, index) in projectArray" v-bind:key="index">
-                  <td>1</td>
+                <tr v-for="(item, index) in projectData" v-bind:key="index">
+                  <td>{{item.name}}</td>
                 </tr>
               </thead>
             </table>
@@ -134,7 +82,220 @@
         scrollDirection: '',
         monthArray: [],
         projectArray: [],
-        curModule: 0
+        curModule: 0,
+        originProjectData: [
+          {
+            '2019-01': {
+              '01': {
+                last: 2,
+                max: 1
+              },
+              '02': {
+                last: 2,
+                max: 1
+              },
+              '03': {
+                last: 2,
+                max: 1
+              },
+              '04': {
+                last: 2,
+                max: 1
+              }
+            },
+            '2019-02': {
+              '01': {
+                last: 2,
+                max: 1
+              },
+              '02': {
+                last: 2,
+                max: 1
+              },
+              '03': {
+                last: 2,
+                max: 1
+              },
+              '04': {
+                last: 2,
+                max: 1
+              }
+            },
+            '2019-03': {
+              '01': {
+                last: 2,
+                max: 1
+              },
+              '02': {
+                last: 2,
+                max: 1
+              },
+              '03': {
+                last: 2,
+                max: 1
+              },
+              '04': {
+                last: 2,
+                max: 1
+              }
+            }
+          },
+          {
+            '2019-01': {
+              '01': {
+                last: 2,
+                max: 1
+              },
+              '02': {
+                last: 2,
+                max: 1
+              },
+              '03': {
+                last: 2,
+                max: 1
+              },
+              '04': {
+                last: 2,
+                max: 1
+              }
+            },
+            '2019-02': {
+              '01': {
+                last: 2,
+                max: 1
+              },
+              '02': {
+                last: 2,
+                max: 1
+              },
+              '03': {
+                last: 2,
+                max: 1
+              },
+              '04': {
+                last: 2,
+                max: 1
+              }
+            },
+            '2019-03': {
+              '01': {
+                last: 2,
+                max: 1
+              },
+              '02': {
+                last: 2,
+                max: 1
+              },
+              '03': {
+                last: 2,
+                max: 1
+              },
+              '04': {
+                last: 2,
+                max: 1
+              }
+            }
+          },
+          {
+            '2019-01': {
+              '01': {
+                last: 2,
+                max: 1
+              },
+              '02': {
+                last: 2,
+                max: 1
+              },
+              '03': {
+                last: 2,
+                max: 1
+              },
+              '04': {
+                last: 2,
+                max: 1
+              }
+            },
+            '2019-02': {
+              '01': {
+                last: 2,
+                max: 1
+              },
+              '02': {
+                last: 2,
+                max: 1
+              },
+              '03': {
+                last: 2,
+                max: 1
+              },
+              '04': {
+                last: 2,
+                max: 1
+              }
+            },
+            '2019-03': {
+              '01': {
+                last: 2,
+                max: 1
+              },
+              '02': {
+                last: 2,
+                max: 1
+              },
+              '03': {
+                last: 2,
+                max: 1
+              },
+              '04': {
+                last: 2,
+                max: 1
+              }
+            }
+          }
+        ],
+        projectData: [
+          {
+            name: '项目A',
+            type: 1
+          },
+          {
+            name: '项目B',
+            type: 1
+          },
+          {
+            name: '项目C',
+            type: 1
+          }
+        ],
+        monthData: [
+          {
+            month: '2019-01',
+            days: [
+              '01',
+              '02',
+              '03',
+              '04'
+            ]
+          },
+          {
+            month: '2019-02',
+            days: [
+              '01',
+              '02',
+              '03',
+              '04'
+            ]
+          },
+          {
+            month: '2019-03',
+            days: [
+              '01',
+              '02',
+              '03',
+              '04'
+            ]
+          }
+        ]
       }
     },
     beforeCreate() {
