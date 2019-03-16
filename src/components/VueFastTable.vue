@@ -34,18 +34,21 @@
                   cellspacing="0" cellpadding="0">
                   <tbody>
                     <tr>
-                      <td @click="clickTd" v-for="(d_item, d_index) in item.days" v-bind:key="d_index">
-                        {{(originProjectData[p_index][''+item.month][''+d_item]['last'])}}
-                      <!-- <input/> -->
+                      <td 
+                        @click="clickTd(p_index,item.month, d_item, $event)" 
+                        v-for="(d_item, d_index) in item.days" v-bind:key="d_index">
+                      <span v-if="!originProjectData[p_index][''+item.month][''+d_item]['show']">{{originProjectData[p_index][''+item.month][''+d_item]['last']}}</span>
+                      <input
+                        @blur="blurTd(p_index,item.month, d_item)"
+                        v-if="originProjectData[p_index][''+item.month][''+d_item]['show']"
+                        v-model="originProjectData[p_index][''+item.month][''+d_item]['last']"
+                        v-focus="originProjectData[p_index][''+item.month][''+d_item]['focus']"/>
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-              
-
             </div>
-            
           </div>
         </div>
          <div class="table-fix-cloumns">
@@ -81,11 +84,6 @@
     components: {
         
     },
-    props: {
-      columns: Array,
-      data: Array,
-      options: Object
-    },
     data() {
       return {
         scrollLeft: 0,
@@ -118,16 +116,13 @@
           this.scrollLeft = -scrollLeft
           this.scrollTop = -scrollTop
       },
-      clickTd(e) {
-        e.target.childNodes[0].style.display = 'block'
-        setTimeout(()=>{
-          e.target.childNodes[0].focus()
-        },20)
-        
+      clickTd(p_index, month, d_index, e) {
+        this.originProjectData[p_index][''+month][''+d_index]['show'] = true
+        this.originProjectData[p_index][''+month][''+d_index]['focus'] = true
       },
-      blurTd(e) {
-        e.target.style.display = 'none'
-        
+      blurTd(p_index, month, d_index) {
+        this.originProjectData[p_index][''+month][''+d_index]['show'] = false
+        this.originProjectData[p_index][''+month][''+d_index]['focus'] = false
       },
       initData(monthNum, projectNum) {
 
@@ -146,7 +141,7 @@
           monthData.forEach((m_item)=>{
             let days = {};
             m_item.days.forEach((d_item)=>{
-              days[d_item] = {last: 2, max: 1}
+              days[d_item] = {last: 2, max: 1, show:false, focus: false}
             })
             data[m_item.month] = days;
           })
@@ -159,7 +154,7 @@
     },
     mounted() {
       var startDate = new Date().getTime()
-      this.initData(100, 100)
+      this.initData(10, 100)
       console.log('计算耗时' + new Date().getTime() - startDate)
     }
   }
