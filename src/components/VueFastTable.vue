@@ -30,7 +30,7 @@
                 v-for="(p_item, p_index) in projectData" 
                 v-bind:key="p_index">
                 <table width="3000"
-                  v-if="Math.abs(p_index - curRow)  < 20"
+                  v-if="Math.abs(p_index - curRow)  < 10"
                   cellspacing="0" cellpadding="0">
                   <tbody>
                     <tr>
@@ -154,8 +154,8 @@
     },
     mounted() {
       var startDate = new Date().getTime()
-      this.initData(10, 100)
-      console.log('计算耗时' + new Date().getTime() - startDate)
+      this.initData(100, 100)
+      console.log('计算耗时' + (new Date().getTime() - startDate))
     }
   }
 </script>
