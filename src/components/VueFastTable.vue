@@ -154,7 +154,7 @@
     },
     mounted() {
       var startDate = new Date().getTime()
-      this.initData(100, 100)
+      this.initData(36, 100)
       console.log('计算耗时' + (new Date().getTime() - startDate))
     }
   }
